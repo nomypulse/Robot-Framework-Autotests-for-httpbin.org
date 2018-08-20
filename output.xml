@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0.4 (Python 3.6.1 on win32)" generated="20180820 16:09:34.362">
+<suite id="s1" name="Tests" source="C:\YandexDisk\work\toha\tests.robot">
+<test id="s1-t1" name="Test Auth">
+<kw name="Check auth">
+<doc>Шаблон для проверки /basic-auth/:user/:passwd</doc>
+<arguments>
+<arg>user1</arg>
+<arg>pass1</arg>
+</arguments>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Отправка запроса</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:34.702" endtime="20180820 16:09:34.703"></status>
+</kw>
+<kw name="Test Auth" library="httpbin_tester">
+<doc>Функция выполняющая базовую авторизацию</doc>
+<arguments>
+<arg>user=${user}</arg>
+<arg>password=${password}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20180820 16:09:35.067" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20180820 16:09:34.703" endtime="20180820 16:09:35.067"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Проверка кода ответа</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.068" endtime="20180820 16:09:35.068"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20180820 16:09:35.069" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20180820 16:09:35.069" endtime="20180820 16:09:35.070"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Проверка полученного контента на соответствие параметров</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.070" endtime="20180820 16:09:35.070"></status>
+</kw>
+<kw name="Element Should Exist" library="JsonValidator">
+<doc>Check the existence of one or more elements, matching [ http://jsonselect.org/ | JSONSelect] expression.</doc>
+<arguments>
+<arg>${resp.content}</arg>
+<arg>.user:contains("${user}")</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.070" endtime="20180820 16:09:35.072"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${resp.content}</arg>
+<arg>.authenticated</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.072" endtime="20180820 16:09:35.072"></status>
+</kw>
+<status status="PASS" starttime="20180820 16:09:34.702" endtime="20180820 16:09:35.072"></status>
+</kw>
+<kw name="Check auth">
+<doc>Шаблон для проверки /basic-auth/:user/:passwd</doc>
+<arguments>
+<arg>user2</arg>
+<arg>pass2</arg>
+</arguments>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Отправка запроса</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.074" endtime="20180820 16:09:35.075"></status>
+</kw>
+<kw name="Test Auth" library="httpbin_tester">
+<doc>Функция выполняющая базовую авторизацию</doc>
+<arguments>
+<arg>user=${user}</arg>
+<arg>password=${password}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20180820 16:09:35.436" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20180820 16:09:35.075" endtime="20180820 16:09:35.436"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Проверка кода ответа</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.437" endtime="20180820 16:09:35.437"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20180820 16:09:35.438" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20180820 16:09:35.438" endtime="20180820 16:09:35.439"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Проверка полученного контента на соответствие параметров</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.439" endtime="20180820 16:09:35.439"></status>
+</kw>
+<kw name="Element Should Exist" library="JsonValidator">
+<doc>Check the existence of one or more elements, matching [ http://jsonselect.org/ | JSONSelect] expression.</doc>
+<arguments>
+<arg>${resp.content}</arg>
+<arg>.user:contains("${user}")</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.439" endtime="20180820 16:09:35.440"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${resp.content}</arg>
+<arg>.authenticated</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.440" endtime="20180820 16:09:35.441"></status>
+</kw>
+<status status="PASS" starttime="20180820 16:09:35.073" endtime="20180820 16:09:35.441"></status>
+</kw>
+<status status="PASS" starttime="20180820 16:09:34.701" endtime="20180820 16:09:35.442" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Test Get">
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Создание необходимых словарей для передачу в функцию</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.445" endtime="20180820 16:09:35.446"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json; charset=UTF-8</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20180820 16:09:35.448" level="INFO">${headers} = {'Content-Type': 'application/json; charset=UTF-8'}</msg>
+<status status="PASS" starttime="20180820 16:09:35.447" endtime="20180820 16:09:35.448"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>param1=val1</arg>
+<arg>param2=val2</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20180820 16:09:35.450" level="INFO">${params} = {'param1': 'val1', 'param2': 'val2'}</msg>
+<status status="PASS" starttime="20180820 16:09:35.449" endtime="20180820 16:09:35.450"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Отправка запроса</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.451" endtime="20180820 16:09:35.451"></status>
+</kw>
+<kw name="Test Get" library="httpbin_tester">
+<doc>Функция выполняющая GET запрос с заданными параметрами</doc>
+<arguments>
+<arg>params=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20180820 16:09:35.837" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20180820 16:09:35.453" endtime="20180820 16:09:35.837"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Проверка кода ответа</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.838" endtime="20180820 16:09:35.839"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20180820 16:09:35.841" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20180820 16:09:35.840" endtime="20180820 16:09:35.841"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Проверка полученного контента на соответствие параметров</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.842" endtime="20180820 16:09:35.842"></status>
+</kw>
+<kw name="Element Should Exist" library="JsonValidator">
+<doc>Check the existence of one or more elements, matching [ http://jsonselect.org/ | JSONSelect] expression.</doc>
+<arguments>
+<arg>${resp.content}</arg>
+<arg>.args .param1:contains("val1")</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.843" endtime="20180820 16:09:35.844"></status>
+</kw>
+<kw name="Element Should Exist" library="JsonValidator">
+<doc>Check the existence of one or more elements, matching [ http://jsonselect.org/ | JSONSelect] expression.</doc>
+<arguments>
+<arg>${resp.content}</arg>
+<arg>.args .param2:contains("val2")</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.845" endtime="20180820 16:09:35.847"></status>
+</kw>
+<kw name="Element Should Exist" library="JsonValidator">
+<doc>Check the existence of one or more elements, matching [ http://jsonselect.org/ | JSONSelect] expression.</doc>
+<arguments>
+<arg>${resp.content}</arg>
+<arg>.headers .Content-Type:contains("application/json; charset=UTF-8")</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.847" endtime="20180820 16:09:35.849"></status>
+</kw>
+<doc>Тест для проверки метода /get</doc>
+<status status="PASS" starttime="20180820 16:09:35.444" endtime="20180820 16:09:35.850" critical="yes"></status>
+</test>
+<test id="s1-t3" name="Test Stream">
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Отправка запроса</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:35.854" endtime="20180820 16:09:35.854"></status>
+</kw>
+<kw name="Test Stream" library="httpbin_tester">
+<doc>Функция выполняющая GET запрос по пути /stream/:n</doc>
+<arguments>
+<arg>count=${count_stream_lines}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20180820 16:09:36.300" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20180820 16:09:35.855" endtime="20180820 16:09:36.300"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Проверка кода ответа</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:36.301" endtime="20180820 16:09:36.302"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20180820 16:09:36.303" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20180820 16:09:36.303" endtime="20180820 16:09:36.304"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Проверка полученного контента на соответствие установленному количеству строк</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:36.305" endtime="20180820 16:09:36.305"></status>
+</kw>
+<kw name="Get Line Count" library="String">
+<doc>Returns and logs the number of lines in the given string.</doc>
+<arguments>
+<arg>${resp.content}</arg>
+</arguments>
+<assign>
+<var>${rec_count}</var>
+</assign>
+<msg timestamp="20180820 16:09:36.307" level="INFO">4 lines</msg>
+<msg timestamp="20180820 16:09:36.307" level="INFO">${rec_count} = 4</msg>
+<status status="PASS" starttime="20180820 16:09:36.306" endtime="20180820 16:09:36.307"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${4}</arg>
+<arg>${rec_count}</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:09:36.308" endtime="20180820 16:09:36.309"></status>
+</kw>
+<doc>Тест для проверки метода /stream</doc>
+<status status="PASS" starttime="20180820 16:09:35.852" endtime="20180820 16:09:36.310" critical="yes"></status>
+</test>
+<doc>Тесты для сайта http://httpbin.org/.
+
+== Зависимости ==
+- [ https://github.com/dmizverev/robot-framework-library/blob/master/library/JsonValidator.py | JsonValidator ]
+- [ http://robotframework.org/robotframework/latest/libraries/String.html | String ]</doc>
+<status status="PASS" starttime="20180820 16:09:34.363" endtime="20180820 16:09:36.314"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0">Critical Tests</stat>
+<stat pass="3" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" id="s1" name="Tests">Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
