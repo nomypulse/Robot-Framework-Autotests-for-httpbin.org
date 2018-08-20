@@ -42,12 +42,12 @@ Test Stream
 
 *** Keywords ***
 Check auth
-    [Documentation]    Шаблон для проверки /basic-auth/:user/:passwd
-    [Arguments]    ${user}    ${password}
-    Comment    Отправка запроса
-    ${resp}=    Test Auth      user=${user}      password=${password}
-    Comment    Проверка кода ответа
-    Should be equal as strings    ${resp.status_code}    200
-    Comment    Проверка полученного контента на соответствие параметров
-    Element should exist    ${resp.content}    .user:contains("${user}")
-    Should Be True          ${resp.content}    .authenticated
+            [Documentation]    Шаблон для проверки /basic-auth/:user/:passwd
+            [Arguments]    ${user}    ${password}
+            Comment    Отправка запроса
+            ${resp}=    Test Auth      user=${user}      password=${password}
+            Comment    Проверка кода ответа
+            Should be equal as strings    ${resp.status_code}    200
+            Comment    Проверка полученного контента на соответствие параметров
+            Element should exist    ${resp.content}    .user:contains("${user}")
+            Should Be True          ${resp.content}    .authenticated
