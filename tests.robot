@@ -12,9 +12,10 @@ Library           httpbin_tester.py
 ${count_stream_lines}=  ${4}
 
 *** Test Cases ***
-Test Auth   [Template]    Check auth
-            user1         pass1
-            user2         pass2
+Test Auth   [Template]         Check auth
+            [Documentation]    Тесты для проверки метода /basic-auth
+            user1              pass1
+            user2              pass2
 
 Test Get
             [Documentation]    Тест для проверки метода /get
