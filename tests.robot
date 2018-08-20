@@ -38,7 +38,7 @@ Test Stream
             Should be equal as strings    ${resp.status_code}    200
             Comment    Проверка полученного контента на соответствие установленному количеству строк
             ${rec_count} =   Get Line Count    ${resp.content}
-            Should Be Equal    ${4}    ${rec_count}
+            Should Be Equal    ${count_stream_lines}    ${rec_count}
 
 *** Keywords ***
 Check auth
